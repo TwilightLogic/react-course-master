@@ -10,40 +10,25 @@ function BookList() {
   return (
     <section className="booklist">
       <Book />
-      <Book />
-      <Book />
-      <Book />
     </section>
   );
 }
 
+const author = 'James Clear';
 const Book = () => {
+  const title = 'Atomic Habits';
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img
+        className="image"
+        src="https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg"
+        alt="Atomic Habits"
+      />
+      <h1>{title}</h1>
+      <h4>{author.toUpperCase()}</h4>
     </article>
   );
 };
-
-const Image = () => {
-  return (
-    <img
-      className="image"
-      src="https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg"
-      alt="Atomic Habits"
-    />
-  );
-};
-
-const Title = () => <h1>Atomic Habits</h1>;
-const Author = () => (
-  // To pass a JS object in JSX, we must wrap the object in another pair of curly braces ⬇️
-  <h4 style={{ color: '#617d98', fontSize: '1.2rem', marginTop: '0.4rem' }}>
-    James Clear
-  </h4>
-);
 
 // ReactDom.(<BookList />, document.getElementById('root'));
 // Using New root API (react 18 feature) ⬇️

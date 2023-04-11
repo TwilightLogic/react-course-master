@@ -37,6 +37,12 @@ body {
   margin-top: 0.8rem;
 }
 
+.book h4 {
+  color: #617d98;
+  font-size: 1.2rem;
+  margin-top: 0.4rem;
+}
+
 @media screen and (min-width: 76em) {
   .booklist {
     grid-template-columns: repeat(3, 1fr);
