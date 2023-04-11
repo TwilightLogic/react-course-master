@@ -35,3 +35,35 @@ const GreetingMultiFun = () => {
 // 💡 Tips: We have to close the tag. (Even using the `img` tag)
 ReactDom.render(<Greeting />, document.getElementById('root'));
 ```
+
+### JSX rules
+
+- Return single element
+- like div / section / article or Fragment
+- Use camelCase for HTML attribute
+- Use className instead of class
+- Close every element
+- formatting
+
+```js
+function Greeting() {
+  // Using '()' when wrapping the lines
+  return (
+    // I think <React.Fragment> stands for a <div> ?
+    // We can also use the shorthand <> to replace  <React.Fragment>
+    // use camelCase: We're not gonna add 'onclick' to div, but 'onClick'
+    <React.Fragment>
+      <div>
+        <h1>Hello the fucking world!</h1>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <a href="#">fucking</a>
+          </li>
+        </ul>
+      </div>
+    </React.Fragment>
+  );
+}
+```
