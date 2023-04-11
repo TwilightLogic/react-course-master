@@ -1,6 +1,6 @@
 # Notes 💡
 
-### React component behinds the scene
+### React Component Behinds the Scene
 
 ```js
 import React from 'react';
@@ -36,7 +36,7 @@ const GreetingMultiFun = () => {
 ReactDom.render(<Greeting />, document.getElementById('root'));
 ```
 
-### JSX rules
+### JSX Rules
 
 - Return single element
 - like div / section / article or Fragment
@@ -66,4 +66,26 @@ function Greeting() {
     </React.Fragment>
   );
 }
+```
+
+### Nested Components and Tools
+
+```js
+import React from 'react';
+import ReactDom from 'react-dom';
+
+function Greeting() {
+  return (
+    <div>
+      <Person />
+      <Message />
+    </div>
+  );
+}
+
+// We spilt the code into the chunks (so grace, right?)
+const Person = () => <h1>Hi, I'm Lucas</h1>;
+const Message = () => <p>This is my message</p>;
+
+ReactDom.render(<Greeting />, document.getElementById('root'));
 ```

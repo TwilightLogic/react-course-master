@@ -4,9 +4,13 @@ import ReactDom from 'react-dom';
 function Greeting() {
   return (
     <div>
-      <h1>Hello the fucking world!</h1>
+      <Person />
+      <Message />
     </div>
   );
 }
+
+const Person = () => <h1>Hi, I'm Lucas</h1>;
+const Message = () => <p>This is my message</p>;
 
 ReactDom.render(<Greeting />, document.getElementById('root'));
