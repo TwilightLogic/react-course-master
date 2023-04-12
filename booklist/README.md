@@ -83,7 +83,8 @@ const root = ReactDomClient.createRoot(document.getElementById('root'));
 root.render(<BookList />);
 ```
 
-Actually, it is a destructing syntax
+Actually, it is a destructing syntax.
+
 It's totally equivalent ⬆️ ⬇️
 
 ```js
