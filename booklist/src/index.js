@@ -21,17 +21,34 @@ const books = [
     title: 'Outlive',
     author: 'Peter Attia MD',
   },
+  {
+    id: 2,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/71aG+xDKSYL._AC_UL900_SR300,450_.jpg',
+    title: 'The 48 Laws of Power',
+    author: 'Robert Greene',
+  },
 ];
 
-const names = ['John', 'Lucas', 'Harry'];
-const newNames = names.map(name => <h1>{name}</h1>);
-
 function BookList() {
-  return <section className="booklist">{newNames}</section>;
+  return (
+    <section className="booklist">
+      {/* It forwarding a `book` object to parent component(Book) */}
+      {books.map(book => (
+        <Book book={book}></Book>
+      ))}
+    </section>
+  );
 }
 
+// Every time `Book` component accepts a `book` object from `BookList` component
+// So we can see 3 results are returned in the log of browser
 const Book = props => {
-  const { img, title, author } = props;
+  console.log(props);
+
+  // `book` is an object of `props`
+  // We are not destructing the `props`
+  // Actually, we are destructing the 'book'
+  const { img, title, author } = props.book;
   return (
     <article className="book">
       <img className="image" src={img} alt={title} />
