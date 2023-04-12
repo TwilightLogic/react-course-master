@@ -96,3 +96,42 @@ const Book = props => {
   );
 };
 ```
+
+#### Props - Children
+
+💡 Tips: We must name 'children' in Book component(children) while we are using nested content inside JSX in BookList component(parent)
+
+```js
+function BookList() {
+  return (
+    <section className="booklist">
+      <Book
+        book={{ title: 'Atomic Habits', author: 'James Clear' }}
+        imgSrc={
+          'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg'
+        }
+      >
+        {/* We can add some tags or forward some parameters here. */}
+        {/* This <p></p> here is considered as a 'parameter', */}
+        {/* so we should also add another one argument in the Book component */}
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+          reiciendis architecto consectetur nemo accusantium dolorem eveniet,
+          soluta reprehenderit labore iste.
+        </p>
+      </Book>
+    </section>
+  );
+}
+
+const Book = ({ book, imgSrc, children }) => {
+  return (
+    <article className="book">
+      <img className="image" src={imgSrc} alt={book.title} />
+      <h1>{book.title}</h1>
+      <h4>{book.author}</h4>
+      {children}
+    </article>
+  );
+};
+```

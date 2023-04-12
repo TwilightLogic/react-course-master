@@ -27,7 +27,13 @@ function BookList() {
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
+          reiciendis architecto consectetur nemo accusantium dolorem eveniet,
+          soluta reprehenderit labore iste.
+        </p>
+      </Book>
       <Book
         img={secondBook.img}
         title={secondBook.title}
@@ -37,12 +43,13 @@ function BookList() {
   );
 }
 
-const Book = ({ img, title, author }) => {
+const Book = ({ img, title, author, children }) => {
   return (
     <article className="book">
       <img className="image" src={img} alt={title} />
       <h1>{title}</h1>
       <h4>{author}</h4>
+      {children}
     </article>
   );
 };
