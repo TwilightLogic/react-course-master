@@ -135,3 +135,76 @@ const Book = ({ book, imgSrc, children }) => {
   );
 };
 ```
+
+### Rendering Lists
+
+1. Put `books` object in an array
+
+```js
+const books = [
+  {
+    id: 0,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg',
+    title: 'Atomic Habits',
+    author: 'James Clear',
+  },
+  {
+    id: 1,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/71IJiOOyb1L._AC_UL900_SR300,450_.jpg',
+    title: 'Outlive',
+    author: 'Peter Attia MD',
+  },
+];
+```
+
+2. Map `books` members into a new array o JSX nodes, and return it as `newNames`.
+
+```js
+const names = ['John', 'Lucas', 'Harry'];
+const newNames = names.map(name => <h1>{name}</h1>);
+```
+
+Here is the results:
+
+```js
+import React from 'react';
+import * as ReactDomClient from 'react-dom/client';
+
+import './index.css';
+
+const books = [
+  {
+    id: 0,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg',
+    title: 'Atomic Habits',
+    author: 'James Clear',
+  },
+  {
+    id: 1,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/71IJiOOyb1L._AC_UL900_SR300,450_.jpg',
+    title: 'Outlive',
+    author: 'Peter Attia MD',
+  },
+];
+
+const names = ['John', 'Lucas', 'Harry'];
+const newNames = names.map(name => <h1>{name}</h1>);
+
+function BookList() {
+  return <section className="booklist">{newNames}</section>;
+}
+
+const Book = props => {
+  const { img, title, author } = props;
+  return (
+    <article className="book">
+      <img className="image" src={img} alt={title} />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+    </article>
+  );
+};
+
+const root = ReactDomClient.createRoot(document.getElementById('root'));
+root.render(<BookList />);
+```

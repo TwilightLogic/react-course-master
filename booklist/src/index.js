@@ -8,39 +8,26 @@ import './index.css';
 // const author = 'James Clear';
 // const title = 'Atomic Habits';
 
-const firstBook = {
-  img: 'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg',
-  title: 'Atomic Habits',
-  author: 'James Clear',
-};
+const books = [
+  {
+    id: 0,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg',
+    title: 'Atomic Habits',
+    author: 'James Clear',
+  },
+  {
+    id: 1,
+    img: 'https://images-na.ssl-images-amazon.com/images/I/71IJiOOyb1L._AC_UL900_SR300,450_.jpg',
+    title: 'Outlive',
+    author: 'Peter Attia MD',
+  },
+];
 
-const secondBook = {
-  img: 'https://images-na.ssl-images-amazon.com/images/I/71IJiOOyb1L._AC_UL900_SR300,450_.jpg',
-  title: 'Outlive',
-  author: 'Peter Attia MD',
-};
+const names = ['John', 'Lucas', 'Harry'];
+const newNames = names.map(name => <h1>{name}</h1>);
 
 function BookList() {
-  return (
-    <section className="booklist">
-      <Book
-        img={firstBook.img}
-        title={firstBook.title}
-        author={firstBook.author}
-      >
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-          reiciendis architecto consectetur nemo accusantium dolorem eveniet,
-          soluta reprehenderit labore iste.
-        </p>
-      </Book>
-      <Book
-        img={secondBook.img}
-        title={secondBook.title}
-        author={secondBook.author}
-      />
-    </section>
-  );
+  return <section className="booklist">{newNames}</section>;
 }
 
 const Book = props => {
@@ -50,7 +37,6 @@ const Book = props => {
       <img className="image" src={img} alt={title} />
       <h1>{title}</h1>
       <h4>{author}</h4>
-      {props.children}
     </article>
   );
 };
