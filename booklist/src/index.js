@@ -5,27 +5,28 @@ import * as ReactDomClient from 'react-dom/client';
 
 // CSS
 import './index.css';
+// const author = 'James Clear';
+// const title = 'Atomic Habits';
 
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
+      <Book
+        book={{ title: 'Atomic Habits', author: 'James Clear' }}
+        imgSrc={
+          'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg'
+        }
+      />
     </section>
   );
 }
 
-const author = 'James Clear';
-const Book = () => {
-  const title = 'Atomic Habits';
+const Book = ({ book, imgSrc }) => {
   return (
     <article className="book">
-      <img
-        className="image"
-        src="https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg"
-        alt="Atomic Habits"
-      />
-      <h1>{title}</h1>
-      <h4>{author.toUpperCase()}</h4>
+      <img className="image" src={imgSrc} alt={book.title} />
+      <h1>{book.title}</h1>
+      <h4>{book.author}</h4>
     </article>
   );
 };
