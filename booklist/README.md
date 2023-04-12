@@ -157,7 +157,7 @@ const books = [
 ];
 ```
 
-2. Map `books` members into a new array o JSX nodes, and return it as `newNames`.
+2. Map `books` members into a new array o JSX nodes, and return it as `newNames`. (Remember: Array.prototype.map() is going to return a new array)
 
 ```js
 const names = ['John', 'Lucas', 'Harry'];
