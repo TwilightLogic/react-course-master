@@ -50,8 +50,6 @@ import * as ReactDomClient from 'react-dom/client';
 
 // CSS
 import './index.css';
-// const author = 'James Clear';
-// const title = 'Atomic Habits';
 
 function BookList() {
   return (

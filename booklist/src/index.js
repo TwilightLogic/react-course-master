@@ -8,25 +8,41 @@ import './index.css';
 // const author = 'James Clear';
 // const title = 'Atomic Habits';
 
+const firstBook = {
+  img: 'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg',
+  title: 'Atomic Habits',
+  author: 'James Clear',
+};
+
+const secondBook = {
+  img: 'https://images-na.ssl-images-amazon.com/images/I/71IJiOOyb1L._AC_UL900_SR300,450_.jpg',
+  title: 'Outlive',
+  author: 'Peter Attia MD',
+};
+
 function BookList() {
   return (
     <section className="booklist">
       <Book
-        book={{ title: 'Atomic Habits', author: 'James Clear' }}
-        imgSrc={
-          'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg'
-        }
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
       />
     </section>
   );
 }
 
-const Book = ({ book, imgSrc }) => {
+const Book = props => {
   return (
     <article className="book">
-      <img className="image" src={imgSrc} alt={book.title} />
-      <h1>{book.title}</h1>
-      <h4>{book.author}</h4>
+      <img className="image" src={props.img} alt={props.title} />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
     </article>
   );
 };
