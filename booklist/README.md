@@ -375,3 +375,35 @@ const Book = ({ img, title, author }) => {
   );
 };
 ```
+
+### Event Basics
+
+This is the results:
+
+```js
+const Book = ({ img, title, author }) => {
+  const handleClick = () => {
+    alert('Hello World!');
+  };
+
+  return (
+    <article className="book">
+      <img className="image" src={img} alt={title} />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+      <button type="button" onClick={handleClick}>
+        reference example
+      </button>
+    </article>
+  );
+};
+```
+
+> #### 📝 Note
+>
+> We defined `handleClick` function and **passed it as a prop** to `<button>`.
+>
+> **Event handler function:**
+>
+> - Are usually defined inside our components(`Book` here).
+> - Have names that start with handle, followed by the name of the event.
