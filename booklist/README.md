@@ -224,19 +224,19 @@ import './index.css';
 
 const books = [
   {
-    id: 0,
+    id: 1,
     img: 'https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL900_SR300,450_.jpg',
     title: 'Atomic Habits',
     author: 'James Clear',
-  },
+  },f
   {
-    id: 1,
+    id: 2,
     img: 'https://images-na.ssl-images-amazon.com/images/I/71IJiOOyb1L._AC_UL900_SR300,450_.jpg',
     title: 'Outlive',
     author: 'Peter Attia MD',
   },
   {
-    id: 2,
+    id: 3,
     img: 'https://images-na.ssl-images-amazon.com/images/I/71aG+xDKSYL._AC_UL900_SR300,450_.jpg',
     title: 'The 48 Laws of Power',
     author: 'Robert Greene',
@@ -274,4 +274,104 @@ const Book = props => {
 
 const root = ReactDomClient.createRoot(document.getElementById('root'));
 root.render(<BookList />);
+```
+
+### Key Prop and Spread Operator
+
+#### Key Prop
+
+⚠️ JSX elements directly inside a map() call always need keys!
+
+We should always include the `key` in our data
+
+```js
+function BookList() {
+  return (
+    <section className="booklist">
+      {/* It forwarding a `book` object to parent component(Book) */}
+      {books.map(book => (
+        <Book key={book.id} book={book}></Book>
+      ))}
+    </section>
+  );
+}
+```
+
+And we can also add `index` as parameter in map()
+
+```js
+function BookList() {
+  return (
+    <section className="booklist">
+      {/* It forwarding a `book` object to parent component(Book) */}
+      {books.map((book, index) => (
+        <Book key={index} book={book}></Book>
+      ))}
+    </section>
+  );
+}
+```
+
+#### Spread Operator
+
+Sometimes, passing props gets very repetitive:
+
+```js
+function BookList() {
+  return (
+    <section className="booklist">
+      {/* It forwarding a `book` object to parent component(Book) */}
+      {books.map((book, index) => (
+        <Book key={index} img={img} title={title} author={author}></Book>
+      ))}
+    </section>
+  );
+}
+```
+
+We can also use ES6 feature `Spread Operator` (which is more concise):
+
+```js
+function BookList() {
+  return (
+    <section className="booklist">
+      {/* It forwarding a `book` object to parent component(Book) */}
+      {books.map((book, index) => (
+        <Book key={index} {...book}></Book>
+      ))}
+    </section>
+  );
+}
+```
+
+> ❓ OK, so here is the **question**:
+> What's the difference between the parameter `{...book}` and `book={book}` in `<Book />`
+>
+> - I think `{book}` is an object that is assigned to the `book` variable(object) in `book={book}` expression.
+> - So the `book` here is an object that contains data in another object.
+> - The `{...book}` will forward the entry instead.
+> - So it forward the data object itself, not the object of object.
+
+So we will refactor the code like this:
+
+```js
+function BookList() {
+  return (
+    <section className="booklist">
+      {books.map(book => (
+        <Book key={book.id} {...book}></Book>
+      ))}
+    </section>
+  );
+}
+
+const Book = ({ img, title, author }) => {
+  return (
+    <article className="book">
+      <img className="image" src={img} alt={title} />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+    </article>
+  );
+};
 ```
