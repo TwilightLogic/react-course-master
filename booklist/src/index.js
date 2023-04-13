@@ -35,17 +35,33 @@ function BookList() {
 }
 
 const Book = ({ img, title, author }) => {
-  const clickHandler = () => {
+  const clickHandler = e => {
+    // console.log(e.target);
     alert('Hello World!');
+  };
+  const complexExample = author => {
+    console.log(author);
   };
 
   return (
-    <article className="book">
+    <article
+      className="book"
+      onMouseOver={() => {
+        console.log('I like you');
+      }}
+    >
       <img className="image" src={img} alt={title} />
-      <h1>{title}</h1>
+      {/* We can also make event handler as inline way */}
+      <h1 onClick={() => console.log(title)}>{title}</h1>
       <h4>{author}</h4>
+      {/* We have reference `clickHandler` here ⬇️ */}
       <button type="button" onClick={clickHandler}>
         reference example
+      </button>
+      {/* It log in the console when rendering the page without any click event. */}
+      {/* Why was that happening? */}
+      <button type="button" onClick={() => complexExample(author)}>
+        complex example
       </button>
     </article>
   );

@@ -407,3 +407,55 @@ const Book = ({ img, title, author }) => {
 >
 > - Are usually defined inside our components(`Book` here).
 > - Have names that start with handle, followed by the name of the event.
+>
+> By convention, it is common to name event handlers as `handle` followed by the event name.
+> We’ll often see `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, and so on.
+
+We have reference event and we will pass a parameter into an event handler:
+
+```js
+const Book = ({ img, title, author }) => {
+  const clickHandler = () => {
+    alert('Hello World!');
+  };
+  const complexExample = author => {
+    console.log(author);
+  };
+
+  return (
+    <article className="book">
+      <img className="image" src={img} alt={title} />
+      {/* We can also make event handler as inline way */}
+      <h1 onClick={() => console.log(title)}>{title}</h1>
+      <h4>{author}</h4>
+      {/* We have reference `clickHandler` here ⬇️ */}
+      <button type="button" onClick={clickHandler}>
+        reference example
+      </button>
+      {/* It log in the console when rendering the page without any click event. */}
+      {/* Why was that happening? */}
+      <button type="button" onClick={complexExample(author)}>
+        complex example
+      </button>
+    </article>
+  );
+};
+```
+
+> ⚠️ **Pitfall:**
+>
+> 🔴 REMEMBER: Functions passed to event handlers must be passed, not called.
+>
+> - `onclick={handleClick}` (correct) ✅
+> - `onclick={handleClick(param)}` (false) ❌
+>
+> In the first example, the `handleClick` function is passed as an onClick event handler. This tells React to remember it and only call your function when the user clicks the button.
+>
+> In the second example, the `()` at the end of `handleClick()` fires the function immediately during rendering, without any clicks. This is because JavaScript inside the [JSX { and }](https://react.dev/learn/javascript-in-jsx-with-curly-braces) executes right away.
+>
+> If we want to pass a parameter, we can use inline code:
+>
+> - `onclick={() => handleClick(param)}` (correct: return `handleClick()`) ✅
+> - `onclick={handleClick(param)}` (false: fire `handleClick()`) ❌
+>
+> **I think `() => handleClick(param)` in `onClick` is a bit hard to understand**
