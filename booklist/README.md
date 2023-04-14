@@ -462,4 +462,4 @@ const Book = ({ img, title, author }) => {
 
 ### Hooks
 
-Move on [react-advanced-2020 repo](https://github.com/TwilightLogic/react-advanced-2020/blob/master/NOTES.md)
+Move onto [react-advanced-2020 repo](https://github.com/TwilightLogic/react-advanced-2020/blob/master/NOTES.md)
