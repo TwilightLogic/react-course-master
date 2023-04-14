@@ -461,3 +461,5 @@ const Book = ({ img, title, author }) => {
 > **I think `() => handleClick(param)` in `onClick` is a bit hard to understand**
 
 ### Hooks
+
+Move on [react-advanced-2020 repo](https://github.com/TwilightLogic/react-advanced-2020/blob/master/NOTES.md)
