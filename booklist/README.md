@@ -459,3 +459,5 @@ const Book = ({ img, title, author }) => {
 > - `onclick={handleClick(param)}` (false: fire `handleClick()`) ❌
 >
 > **I think `() => handleClick(param)` in `onClick` is a bit hard to understand**
+
+### Hooks
